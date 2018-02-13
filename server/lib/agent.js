@@ -7,7 +7,7 @@ const Promise = require("bluebird");
 
 const FilterUtil = require("./utils/filter-util");
 const SearchUtil = require("./utils/search-util");
-const attributionLogic = require("../custom/attribution-logic");
+const { attributionLogic } = require("../custom/attribution-logic");
 
 class Agent {
   hullClient: Object;

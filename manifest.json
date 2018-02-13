@@ -1,0 +1,38 @@
+{
+  "name": "Hull Event Attribution Processor",
+  "description": "Automate customer interactions with your close.io CRM",
+  "source": "event-attribution-processor",
+  "logo": "logo.png",
+  "picture": "picture.png",
+  "version": "0.1.0",
+  "tags": [
+    "outgoing",
+    "batch",
+    "oneColumn",
+    "smart-notifier"
+  ],
+  "settings": [],
+  "private_settings": [
+    {
+      "name": "whitelisted_events",
+      "title": "Process users and linked accounts when one of the following events has been recorded",
+      "description" : "By default no events will be processed and the connector will not perform any attribution",
+      "type": "array",
+      "format": "event",
+      "default": []
+    }
+  ],
+  "readme": "readme.md",
+  "admin": "admin",
+  "ui": false,
+  "schedules": [
+    {
+      "url": "/status",
+      "type": "cron",
+      "value": "*/30 * * * *"
+    }
+  ],
+  "subscriptions": [{
+    "url": "/smart-notifier"
+  }]
+}

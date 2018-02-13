@@ -11,16 +11,16 @@ const { attributionLogic } = require("../custom/attribution-logic");
 
 class Agent {
   hullClient: Object;
-  metric: Object;
+  metricsClient: Object;
   filterUtil: FilterUtil;
   searchUtil: SearchUtil;
   whitelistedEvents: Array<string>;
 
   constructor(client: Object, connector: Object, metric: Object) {
     this.hullClient = client;
-    this.metric = metric;
+    this.metricsClient = metric;
     this.filterUtil = new FilterUtil(connector.private_settings);
-    this.searchUtil = new SearchUtil(client);
+    this.searchUtil = new SearchUtil(client, metric);
     this.whitelistedEvents = _.get(connector, "private_settings.whitelisted_events", []);
   }
 

@@ -8,27 +8,36 @@ function transformRawEvent(rawData: any): any {
   _.set(evtObj, "id", _.get(rawData, "_id"));
   // Transform props
   _.forEach(rawData.props, prop => {
-    _.set(evtObj, `properties.${prop.field_name}`, _.get(prop, "text_value", ""));
+    if (_.has(prop, "date_value")) {
+      _.set(evtObj, `properties.${prop.field_name}`, _.get(prop, "date_value", null));
+    } else if (_.has(prop, "num_value")) {
+      _.set(evtObj, `properties.${prop.field_name}`, _.get(prop, "num_value", 0));
+    } else if (_.has(prop, "bool_value")) {
+      _.set(evtObj, `properties.${prop.field_name}`, _.get(prop, "bool_value", null));
+    } else {
+      _.set(evtObj, `properties.${prop.field_name}`, _.get(prop, "text_value", ""));
+    }
   });
   return evtObj;
 }
 
 function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
   const traits = {};
+
   if (eventData.event === "Signed Up") {
     _.set(traits, `${prefix}lead_source`, "PQL");
     _.set(traits, `${prefix}lead_source_detail`, _.get(eventData, "properties.type", "ORGANIC"));
   } else if (eventData.event === "Email Captured") {
-    if (_.get(eventData, "context.page_url", "").indexOf("blog.drift.com")) {
-      _.set(traits, `${prefix}lead_source`, "MQL");
-    } else {
+    if (_.get(eventData, "context.page_url", "").indexOf("blog.drift.com") === -1) {
       _.set(traits, `${prefix}lead_source`, "CQL");
+    } else {
+      _.set(traits, `${prefix}lead_source`, "MQL");
     }
     _.set(traits, `${prefix}lead_source_detail`, _.get(eventData, "context.page_url"));
   } else if (eventData.event === "User created" && eventData.source === "Clearbit") {
     _.set(traits, `${prefix}lead_source`, "Growth");
     _.set(traits, `${prefix}lead_source_detail`, "Anonymous Drift Visit");
-  } else if (eventData.event === "Visited G2Growd Page") {
+  } else if (eventData.event === "Visited G2Crowd Page") {
     _.set(traits, `${prefix}lead_source`, "Growth");
     _.set(traits, `${prefix}lead_source_detail`, "G2Crowd");
   }

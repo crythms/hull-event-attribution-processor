@@ -26,6 +26,8 @@ function server(app: $Application): $Application {
       "user:update": actions.userUpdateHandler()
     }
   }));
+
+  app.get("/admin", actions.adminHandler);
   return app;
 }
 

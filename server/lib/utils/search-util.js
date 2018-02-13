@@ -6,9 +6,11 @@ const Promise = require("bluebird");
 
 class SearchUtil {
   hullClient: Object;
+  metricsClient: Object;
 
-  constructor(hull: Object) {
+  constructor(hull: Object, metric: Object) {
     this.hullClient = hull;
+    this.metricsClient = metric;
   }
 
   searchEvents(user: THullObject, events: Array<string>): Promise<IEventSearchResult> {
@@ -23,6 +25,8 @@ class SearchUtil {
         ]
       }
     };
+
+    this.metricsClient.increment("ship.hull_api.search_events", 1);
     return this.hullClient.post("search/events", params).then((res: any) => {
       return { user, events: res.data };
     });

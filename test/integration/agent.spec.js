@@ -16,7 +16,9 @@ describe("Agent", () => {
 
   describe("sendUserMessages", () => {
     const scenariosToRun = [
-      "user-noaccount-scenario01"
+      "user-noaccount-scenario01",
+      "user-noaccount-scenario02",
+      "user-noaccount-scenario03"
     ];
 
     scenariosToRun.forEach((scenarioName) => {
@@ -28,7 +30,7 @@ describe("Agent", () => {
 
         const agent = new Agent(ctxMock.client, ctxMock.connector, ctxMock.metric);
 
-        require(`./fixtures/search-events/${scenarioName}`)(ctxMock);
+        require("./fixtures/search-events/loader")(ctxMock, scenarioName);
 
         return agent.sendUserMessages(smartNotifierPayload.messages)
           .then(() => {

@@ -1,0 +1,151 @@
+{
+  "configuration": {
+      "id": "5a83746bfd48682d93002025",
+      "organization": "98be1234.hullapp.io",
+      "secret": "0f43f93786049ab61cde87fb104b76f7"
+  },
+  "channel": "user:update",
+  "messages": [
+      {
+          "message_id": "XkASTDgBRElTK0MLKlgRTgQhIT4wPkVTRFAGFixdRkhRNxkIaFEOT14jPzUgKEURAQgUBXx9cVNUdVhcGgdRDRlyfGd0YgwSAgUQBnxVXRENem1cVzlSDBpxemByaF4RCApMU1by8sSn2rlrZho9XxJLLD5-MzRFQQ",
+          "user": {
+              "accepts_marketing": false,
+              "anonymous_ids": [
+                  "58a1ca4d-6cd7-468f-9823-c5af39f4f5cc"
+              ],
+              "created_at": "2018-02-14T00:16:25Z",
+              "domain": "hullunittest.io",
+              "email": "lydia@hullunittest.io",
+              "first_name": "Lydia",
+              "first_seen_at": "2018-01-07T19:28:55Z",
+              "first_session_initial_referrer": "",
+              "first_session_initial_url": "http://hull.io/testhull/",
+              "first_session_platform_id": "592e0e500b79ca51440017b1",
+              "first_session_started_at": "2018-01-07T19:28:55Z",
+              "has_password": false,
+              "id": "5a837fd9d8587b4fd40311ea",
+              "is_approved": false,
+              "last_known_ip": "8.8.8.8",
+              "last_name": "Smith",
+              "last_seen_at": "2018-01-17T19:28:55Z",
+              "latest_session_initial_referrer": "",
+              "latest_session_initial_url": "http://hull.io/signup/",
+              "latest_session_platform_id": "592e0e500b79ca51440017b1",
+              "latest_session_started_at": "2018-01-17T19:28:55Z",
+              "name": "Lydia Smith",
+              "segment_ids": [
+                  "59f09bc7f9c5a94af600076d"
+              ],
+              "signup_session_initial_referrer": "",
+              "signup_session_initial_url": "http://drift.com/testhull/",
+              "signup_session_platform_id": "592e0e500b79ca51440017b1",
+              "signup_session_started_at": "2018-01-07T19:28:55Z",
+              "traits_attribution/lead_source": "CQL",
+              "traits_attribution/lead_source_detail": "http://drift.com/testhull/",
+              "traits_attribution/lead_source_timestamp": "2018-01-07T19:28:55Z",
+              "traits_hull": "identify",
+              "indexed_at": "2018-02-14T01:49:17+00:00"
+          },
+          "segments": [
+              {
+                  "id": "59f09bc7f9c5a94af600076d",
+                  "name": "Users signed in last 100 days",
+                  "type": "users_segment",
+                  "created_at": "2017-10-25T14:12:23Z",
+                  "updated_at": "2017-10-25T14:12:23Z"
+              }
+          ],
+          "account": {},
+          "account_segments": [],
+          "events": [
+              {
+                  "track_id": "5a839571964619dfe2035432",
+                  "user_id": "5a837fd9d8587b4fd40311ea",
+                  "anonymous_id": "58a1ca4d-6cd7-468f-9823-c5af39f4f5cc",
+                  "session_id": "58a1ca4d-6cd7-468f-9823-c5af39f4f5cc-2018-01-21",
+                  "ship_id": null,
+                  "app_id": "592e0e500b79ca51440017b1",
+                  "app_name": "Segment",
+                  "created_at": "2018-01-21T19:28:55Z",
+                  "event_id": "a98b650c-f4f4-2aa1-a4a6-ea4b5402ef89",
+                  "event": "Installed Connector",
+                  "properties": {
+                      "name": "Salesforce"
+                  },
+                  "event_source": "segment",
+                  "event_type": "track",
+                  "context": {
+                      "browser": {
+                          "name": "Other"
+                      },
+                      "campaign": {
+                          "name": null,
+                          "source": null,
+                          "medium": null,
+                          "term": null,
+                          "content": null
+                      },
+                      "device": {
+                          "name": "Other"
+                      },
+                      "ip": "8.8.8.8",
+                      "location": {
+                          "city": "",
+                          "country": "US",
+                          "countryname": "United States",
+                          "latitude": 37.751,
+                          "longitude": -97.822,
+                          "region": "",
+                          "regionname": "",
+                          "zipcode": "",
+                          "timezone": ""
+                      },
+                      "os": {
+                          "name": "Other",
+                          "version": ""
+                      },
+                      "page": {
+                          "url": "http://hull.io/connectors",
+                          "host": "hull.io",
+                          "path": "/connectors"
+                      },
+                      "useragent": "Hull Node Client version: 1.1.5"
+                  }
+              }
+          ]
+      }
+  ],
+  "segments": [],
+  "notification_id": "1b70f2f9-b933-4ae8-9f4c-8494da124242",
+  "connector": {
+      "id": "5a83746bfd48682d93002025",
+      "settings": {},
+      "manifest": {
+          "name": "Hull Event Attribution Processor",
+          "version": "0.1.0",
+          "subscriptions": [
+              {
+                  "url": "/smart-notifier"
+              }
+          ],
+          "tags": [
+              "outgoing",
+              "batch",
+              "oneColumn",
+              "smart-notifier"
+          ]
+      },
+      "type": "ship",
+      "name": "f165c95c.ngrok.io",
+      "private_settings": {
+          "whitelisted_events": [
+              "Signed Up",
+              "Email Captured",
+              "Visited G2Crowd Page",
+              "User created"
+          ]
+      },
+      "source_url": "https://f165c95c.ngrok.io/",
+      "manifest_url": "https://f165c95c.ngrok.io/manifest.json"
+  }
+}

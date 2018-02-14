@@ -13,7 +13,9 @@ class FilterUtil {
     const filteredMessages = _.filter(messages, m => {
       const messageEvents = _.get(m, "events", []);
       if (messageEvents.length > 0) {
-        return _.some(messageEvents, e => _.includes(this.whitelistedEvents, e));
+        const matches = _.some(messageEvents, e => _.includes(this.whitelistedEvents, e.event));
+        console.log(matches, messageEvents);
+        return matches;
       }
       return false;
     });

@@ -23,11 +23,13 @@ function server(app: $Application): $Application {
       maxSize: 200
     },
     handlers: {
-      "user:update": actions.userUpdateHandler()
+      "user:update": actions.userUpdateHandler({ isBatch: true })
     }
   }));
 
   app.get("/admin", actions.adminHandler);
+  app.all("/status", actions.statusCheck);
+
   return app;
 }
 

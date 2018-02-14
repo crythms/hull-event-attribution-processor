@@ -52,6 +52,7 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   // TODO: Perform attribution logic here until the next revision
   // Working idea: Pull gist in that is performed in sandbox the allow versioning.
   const sortedEvents = _.sortBy(eventResult.events, ["created_at"]);
+  console.log(sortedEvents);
   let traitsObj = {};
   // Step 1 - Check if the user has attribution/lead_source set, if not process the first
   //          matching event as the initial attribution
@@ -69,7 +70,7 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   const lastRaw = _.last(sortedEvents);
   const lastEvent = transformRawEvent(lastRaw);
 
-  traitsObj = _.merge(traitsObj, createTraitsFromEvent(lastEvent));
+  traitsObj = _.merge(traitsObj, createTraitsFromEvent(lastEvent, "last_"));
 
   return asUser.traits(traitsObj, { source: "attribution" })
     .then(() => {

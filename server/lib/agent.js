@@ -24,10 +24,11 @@ class Agent {
     this.whitelistedEvents = _.get(connector, "private_settings.whitelisted_events", []);
   }
 
-  sendUserMessages(messages: Array<THullUserUpdateMessage>): Promise<any> {
-    const filteredMessages = this.filterUtil.filterMessagesWithEvents(messages);
+  sendUserMessages(messages: Array<THullUserUpdateMessage>, isBatch: boolean = false): Promise<any> {
+    const filteredMessages = isBatch ? messages : this.filterUtil.filterMessagesWithEvents(messages);
     const self = this;
     // Return immediately, if no messages have whitelisted events
+    console.log(messages, filteredMessages);
     if (!filteredMessages || filteredMessages.length === 0) {
       return Promise.resolve([]);
     }

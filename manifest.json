@@ -1,6 +1,6 @@
 {
   "name": "Hull Event Attribution Processor",
-  "description": "Automate customer interactions with your close.io CRM",
+  "description": "A connector to use events for attribution of user and account profiles",
   "source": "event-attribution-processor",
   "logo": "logo.png",
   "picture": "picture.png",

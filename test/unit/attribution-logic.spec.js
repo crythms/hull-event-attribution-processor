@@ -13,7 +13,7 @@ describe("createTraitsFromEvent", () => {
         days_since_signup: 0
       },
       properties: {
-        email: "lsdvincent@gmail.com",
+        email: "somebody12345@hull.io",
         type: "ORGANIC"
       }
     };
@@ -40,7 +40,7 @@ describe("createTraitsFromEvent", () => {
         days_since_signup: 0
       },
       properties: {
-        email: "lsdvincent@gmail.com",
+        email: "somebody12345@hull.io",
         type: "ORGANIC"
       }
     };
@@ -68,7 +68,7 @@ describe("createTraitsFromEvent", () => {
         page_url: "https://blog.drift.com/test-blog"
       },
       properties: {
-        email_value: "marcelo@bovcontrol.com"
+        email_value: "marceloliveira@beyondcontrol.com"
       }
     };
 
@@ -95,7 +95,7 @@ describe("createTraitsFromEvent", () => {
         page_url: "https://blog.drift.com/test-blog"
       },
       properties: {
-        email_value: "marcelo@bovcontrol.com"
+        email_value: "marceloliveira@beyondcontrol.com"
       }
     };
 
@@ -122,7 +122,7 @@ describe("createTraitsFromEvent", () => {
         page_url: "https://drift.com/pricing"
       },
       properties: {
-        email_value: "marcelo@bovcontrol.com"
+        email_value: "marceloliveira@beyondcontrol.com"
       }
     };
 
@@ -149,7 +149,7 @@ describe("createTraitsFromEvent", () => {
         page_url: "https://drift.com/pricing"
       },
       properties: {
-        email_value: "marcelo@bovcontrol.com"
+        email_value: "marceloliveira@beyondcontrol.com"
       }
     };
 

@@ -1,0 +1,25 @@
+{
+  "data": [
+    { "indexed_at": "2018-01-21T19:28:55+00:00",
+      "created_at": "2018-01-21T19:28:55+00:00",
+      "event": "Visited G2Crowd Page",
+      "app_id": null,
+      "app_name": null,
+      "source": "scheduled-calls",
+      "type": "track",
+      "props":
+       [ { "field_name": "at_time", "text_value": "February 09, 2018 08:34 AM CST" },
+        { "field_name": "country", "text_value": "United States (US)" },
+        { "field_name": "first_user_visited", "text_value": "https://www.drift.com/" },
+        { "field_name": "first_visit", "text_value": "Your Site" },
+        { "field_name": "industry", "text_value": "unknown" },
+        { "field_name": "organization", "text_value": "unknown" },
+        { "field_name": "then_user_visited", "text_value": "/compare/drift-vs-intercom" },
+        { "field_name": "time_between_events", "text_value": "19 minutes" } ],
+      "context": { "days_since_signup": 0 },
+      "_id": "a98b947e-f4f4-4bb1-a4a6-ea4b5402ef77",
+      "_type": "event",
+      "_index": "organization_98be1234_user_reports_v2_20180201180839857",
+      "_score": 1.4142135 }
+  ]
+}

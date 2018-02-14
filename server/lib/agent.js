@@ -28,7 +28,6 @@ class Agent {
     const filteredMessages = isBatch ? messages : this.filterUtil.filterMessagesWithEvents(messages);
     const self = this;
     // Return immediately, if no messages have whitelisted events
-    console.log(messages, filteredMessages);
     if (!filteredMessages || filteredMessages.length === 0) {
       return Promise.resolve([]);
     }

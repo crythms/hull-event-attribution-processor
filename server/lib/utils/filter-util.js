@@ -14,7 +14,6 @@ class FilterUtil {
       const messageEvents = _.get(m, "events", []);
       if (messageEvents.length > 0) {
         const matches = _.some(messageEvents, e => _.includes(this.whitelistedEvents, e.event));
-        console.log(matches, messageEvents);
         return matches;
       }
       return false;

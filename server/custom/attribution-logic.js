@@ -40,6 +40,8 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
   } else if (eventData.event === "Visited G2Crowd Page") {
     _.set(traits, `${prefix}lead_source`, "Growth");
     _.set(traits, `${prefix}lead_source_detail`, "G2Crowd");
+  } else {
+    return traits;
   }
 
   // Always set the timestamp
@@ -58,9 +60,19 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   if (_.get(eventResult.user, "traits_attribution/lead_source", "n/a") === "n/a") {
     // Get the oldest event and process it
     const firstRaw = _.first(sortedEvents);
-    const firstEvent = transformRawEvent(firstRaw);
+    let firstEvent = transformRawEvent(firstRaw);
 
-    traitsObj = _.merge(traitsObj, createTraitsFromEvent(firstEvent));
+    let eventTraits = createTraitsFromEvent(firstEvent);
+
+    let eventIndex = 0;
+
+    while (_.keys(eventTraits).length === 0) {
+      eventIndex += 1;
+      firstEvent = _.nth(sortedEvents, eventIndex);
+      eventTraits = createTraitsFromEvent(firstEvent);
+    }
+
+    traitsObj = _.merge(traitsObj, eventTraits);
   }
 
   const asUser = hull.asUser(eventResult.user);

@@ -47,7 +47,8 @@
     "express": "^4.16.2",
     "hull": "0.13.10",
     "lodash": "^4.17.5",
-    "newrelic": "^2.7.1"
+    "newrelic": "^2.7.1",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",

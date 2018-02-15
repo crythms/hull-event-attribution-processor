@@ -20,6 +20,24 @@
       "type": "array",
       "format": "event",
       "default": []
+    },
+    {
+      "name": "gist_id",
+      "title": "Enter the identifier of your Gist",
+      "description" : "The identifier is only the UUID part of the url, e.g.`8975a7192e4c3ee0a4ed64a5d552bd29` for `https://gist.github.com/hull/8975a7192e4c3ee0a4ed64a5d552bd29`",
+      "type": "string"
+    },
+    {
+      "name": "gist_code",
+      "title": "Gist Code",
+      "type": "string",
+      "format": "hidden"  
+    },
+    {
+      "name": "gist_version",
+      "title": "Gist Verison",
+      "type": "string",
+      "format": "hidden"
     }
   ],
   "readme": "readme.md",

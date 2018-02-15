@@ -30,6 +30,8 @@ function server(app: $Application): $Application {
   app.get("/admin", actions.adminHandler);
   app.all("/status", actions.statusCheck);
 
+  app.post("/selectgist", actions.gistHandler);
+
   return app;
 }
 

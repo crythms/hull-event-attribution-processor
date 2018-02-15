@@ -3,6 +3,7 @@ import type { THullObject } from "hull";
 
 export interface IEventSearchResult {
   user: THullObject;
+  account: any;
   events: Array<Object>
 }
 

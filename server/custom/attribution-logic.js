@@ -55,6 +55,7 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   // Working idea: Pull gist in that is performed in sandbox the allow versioning.
   const sortedEvents = _.sortBy(eventResult.events, ["created_at"]);
   let traitsObj = {};
+  let accountTraitsObj = {};
   // Step 1 - Check if the user has attribution/lead_source set, if not process the first
   //          matching event as the initial attribution
   if (_.get(eventResult.user, "traits_attribution/lead_source", "n/a") === "n/a") {
@@ -73,6 +74,13 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
     }
 
     traitsObj = _.merge(traitsObj, eventTraits);
+
+    // Check if the user is linked with an account and if this account
+    // has attribution/lead_source set, if not assign the same attribution as for
+    // the user
+    if (eventResult.account.id && _.get(eventResult.account, "attribution/lead_source", "n/a") === "n/a") {
+      accountTraitsObj = _.merge(accountTraitsObj, eventTraits);
+    }
   }
 
   const asUser = hull.asUser(eventResult.user);
@@ -80,11 +88,22 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   // Step 2 - Process the last event every time
   const lastRaw = _.last(sortedEvents);
   const lastEvent = transformRawEvent(lastRaw);
+  const lastEventTraits = createTraitsFromEvent(lastEvent, "last_");
+  traitsObj = _.merge(traitsObj, lastEventTraits);
 
-  traitsObj = _.merge(traitsObj, createTraitsFromEvent(lastEvent, "last_"));
+  if (eventResult.account.id) {
+    accountTraitsObj = _.merge(accountTraitsObj, lastEventTraits);
+  }
 
   return asUser.traits(traitsObj, { source: "attribution" })
     .then(() => {
+      if (eventResult.account.id) {
+        asUser.logger.info("incoming.user.success", { data: traitsObj });
+        const asAccount = hull.asAccount(eventResult.account);
+        return asAccount.traits(accountTraitsObj, { source: "attribution" }).then(() => {
+          return asAccount.logger.info("incoming.account.success", { data: accountTraitsObj });
+        });
+      }
       return asUser.logger.info("incoming.user.success", { data: traitsObj });
     });
 }

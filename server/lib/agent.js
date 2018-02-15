@@ -33,7 +33,7 @@ class Agent {
     }
 
     return Promise.map(filteredMessages, (m) => {
-      return this.searchUtil.searchEvents(m.user, self.whitelistedEvents);
+      return this.searchUtil.searchEvents(m.user, m.account, self.whitelistedEvents);
     }, { concurrency: 1 })
       .then((res: Array<IEventSearchResult>) => {
         return Promise.map(res, (searchResult: IEventSearchResult) => {

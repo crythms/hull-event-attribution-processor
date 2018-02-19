@@ -3,7 +3,7 @@ import type { IGistHistoryLog } from "../types";
 
 const _ = require("lodash");
 const Promise = require("bluebird");
-const request = require("request");
+const request = require("request"); // TODO: Replace by superagent
 
 const BASE_API = "https://api.github.com/gists";
 
@@ -37,8 +37,13 @@ class GistUtil {
   getCodeForVersion(id: string, sha: string, file: string): Promise<string> {
     const opts = {
       url: `${BASE_API}/${id}/${sha}`,
-      method: "GET"
+      method: "GET",
+      headers: {
+        "user-agent": "Hull Node Client"
+      }
     };
+
+    console.log(opts);
 
     return new Promise((resolve, reject) => {
       request(opts, (err, res) => { // eslint-disable-line consistent-return
@@ -52,13 +57,18 @@ class GistUtil {
           gistData = JSON.parse(res.body);
         }
 
+        console.log(gistData);
+
         const rawUrl = gistData.files[file].raw_url;
 
         console.log(gistData, rawUrl);
 
         const rawOpts = {
           url: rawUrl,
-          method: "GET"
+          method: "GET",
+          headers: {
+            "user-agent": "Hull Node Client"
+          }
         };
 
         request(rawOpts, (errRaw, resRaw) => {

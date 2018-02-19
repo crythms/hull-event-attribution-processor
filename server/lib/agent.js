@@ -27,6 +27,15 @@ class Agent {
   sendUserMessages(messages: Array<THullUserUpdateMessage>, isBatch: boolean = false): Promise<any> {
     const filteredMessages = isBatch ? messages : this.filterUtil.filterMessagesWithEvents(messages);
     const self = this;
+
+    _.forEach(messages, (m) => {
+      try {
+        this.hullClient.asUser(m.user)
+          .logger.debug("incoming.user.start", { events: _.map(m.events, "event") });
+      } catch (error) {
+        // don't ever fail on a log call
+      }
+    });
     // Return immediately, if no messages have whitelisted events
     if (!filteredMessages || filteredMessages.length === 0) {
       return Promise.resolve([]);

@@ -66,7 +66,7 @@
             closeOnConfirm: false
           }, function(isConfirm) {
             if (isConfirm) {
-              $.post(url+window.location.search);
+              $.post(url+window.location.search.replace(/^\?/, "&"));
               swal("Version selected", "The code of the selected version will be applied and events are being processed with the new code going forward.", "success");
             }
           });

@@ -93,7 +93,7 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
 
   let lastEventIndex = 0;
 
-  while (_.keys(lastEventTraits).length === 0 && Math.abs(lastEventIndex) < sortedEvents.length) {
+  while (_.keys(lastEventTraits).length === 0 && Math.abs(lastEventIndex) <= sortedEvents.length) {
     lastEventIndex -= 1;
     lastEvent = _.nth(sortedEvents, lastEventIndex);
     lastEventTraits = createTraitsFromEvent(lastEvent);

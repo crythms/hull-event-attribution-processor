@@ -4,8 +4,16 @@ import type { IEventSearchResult } from "../lib/types";
 const _ = require("lodash");
 
 function transformRawEvent(rawData: any): any {
+  if (!rawData) {
+    return {};
+  }
   const evtObj = _.pick(rawData, ["indexed_at", "created_at", "event", "source", "session_id", "type", "context"]);
   _.set(evtObj, "id", _.get(rawData, "_id"));
+
+  if (!rawData.props) {
+    return evtObj;
+  }
+
   // Transform props
   _.forEach(rawData.props, prop => {
     if (_.has(prop, "date_value")) {
@@ -23,6 +31,10 @@ function transformRawEvent(rawData: any): any {
 
 function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
   const traits = {};
+
+  if (!eventData) {
+    return traits;
+  }
 
   if (eventData.event === "Signed Up") {
     _.set(traits, `${prefix}lead_source`, "PQL");

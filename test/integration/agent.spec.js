@@ -18,7 +18,8 @@ describe("Agent", () => {
     const scenariosToRun = [
       "user-noaccount-scenario01",
       "user-noaccount-scenario02",
-      "user-noaccount-scenario03"
+      "user-noaccount-scenario03",
+      "user-noaccount-scenario04"
     ];
 
     scenariosToRun.forEach((scenarioName) => {

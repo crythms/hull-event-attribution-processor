@@ -1,0 +1,155 @@
+{
+  "configuration": {
+    "id": "5a83746bfd48682d93002025",
+    "organization": "98be1234.hullapp.io",
+    "secret": "0f43f93786049ab61cde87fb104b76f7"
+  },
+  "channel": "user:update",
+  "messages": [{
+    "message_id": "Ekw4AURJUytDCypYEU4EISE-MD5FU0RQBhYsXUZIUTcZCGhRDk9eIz81IChFEQEIFAV8fXdTWnVeWhoHUQ0ZcnxndDtdGwILTQZ6VVobBWJcTkQHczMad3pnfWtcGgMKRFR4VnPzp5Tw9pIwZiQ9XxJLLD5-MzRFQV5A",
+    "user": {
+      "accepts_marketing": false,
+      "created_at": "2017-12-04T22:07:37Z",
+      "email": "pauline.moretto@gmail.com",
+      "external_id": "157649",
+      "first_name": "Pauline",
+      "has_password": false,
+      "id": "5a25c7294516e5845500196f",
+      "is_approved": false,
+      "last_name": "Moretto",
+      "name": "Pauline Moretto",
+      "traits_additional": true,
+      "traits_frichti_creation_date": "2017-11-16T10:53:00Z",
+      "traits_frichti_has_been_invited": false,
+      "traits_frichti_is_b2b": false,
+      "traits_frichti_is_last_order_late": false,
+      "traits_frichti_is_vip": false,
+      "traits_frichti_last_order_date": "2017-11-16T10:54:30Z",
+      "traits_frichti_orders_count": 1,
+      "username": "Pauline Moretto",
+      "indexed_at": "2018-02-20T13:00:16+00:00"
+    },
+    "segments": [{
+      "id": "5a8c059c2eb55039f200c15b",
+      "name": "New Segment 1",
+      "type": "users_segment",
+      "created_at": "2018-02-20T11:25:16Z",
+      "updated_at": "2018-02-20T11:25:16Z"
+    }, {
+      "id": "59f09bc7f9c5a94af600076d",
+      "name": "Users signed in last 100 days",
+      "type": "users_segment",
+      "created_at": "2017-10-25T14:12:23Z",
+      "updated_at": "2017-10-25T14:12:23Z"
+    }, {
+      "id": "5a8c05a56396df5003009d2d",
+      "name": "New Segment 4",
+      "type": "users_segment",
+      "created_at": "2018-02-20T11:25:24Z",
+      "updated_at": "2018-02-20T11:25:24Z"
+    }, {
+      "id": "5a8c05a0f0a9ce7828001733",
+      "name": "New Segment 3",
+      "type": "users_segment",
+      "created_at": "2018-02-20T11:25:20Z",
+      "updated_at": "2018-02-20T11:25:20Z"
+    }, {
+      "id": "5a8c0594f25052338f001823",
+      "name": "New segment 1",
+      "type": "users_segment",
+      "created_at": "2018-02-20T11:25:08Z",
+      "updated_at": "2018-02-20T11:25:08Z"
+    }, {
+      "id": "5a8c04e05b5953decf003a92",
+      "name": "New segment",
+      "type": "users_segment",
+      "created_at": "2018-02-20T11:22:08Z",
+      "updated_at": "2018-02-20T11:22:08Z"
+    }, {
+      "id": "5a8c04d871040e9524006be0",
+      "name": "New segment",
+      "type": "users_segment",
+      "created_at": "2018-02-20T11:22:00Z",
+      "updated_at": "2018-02-20T11:22:00Z"
+    }],
+    "account": {},
+    "account_segments": [],
+    "events": [],
+    "changes": {
+      "user": {},
+      "segments": {
+        "entered": [{
+          "id": "5a8c04d871040e9524006be0",
+          "name": "New segment",
+          "type": "users_segment",
+          "created_at": "2018-02-20T11:22:00Z",
+          "updated_at": "2018-02-20T11:22:00Z"
+        }, {
+          "id": "5a8c04e05b5953decf003a92",
+          "name": "New segment",
+          "type": "users_segment",
+          "created_at": "2018-02-20T11:22:08Z",
+          "updated_at": "2018-02-20T11:22:08Z"
+        }, {
+          "id": "5a8c0594f25052338f001823",
+          "name": "New segment 1",
+          "type": "users_segment",
+          "created_at": "2018-02-20T11:25:08Z",
+          "updated_at": "2018-02-20T11:25:08Z"
+        }, {
+          "id": "5a8c059c2eb55039f200c15b",
+          "name": "New Segment 1",
+          "type": "users_segment",
+          "created_at": "2018-02-20T11:25:16Z",
+          "updated_at": "2018-02-20T11:25:16Z"
+        }, {
+          "id": "5a8c05a0f0a9ce7828001733",
+          "name": "New Segment 3",
+          "type": "users_segment",
+          "created_at": "2018-02-20T11:25:20Z",
+          "updated_at": "2018-02-20T11:25:20Z"
+        }, {
+          "id": "5a8c05a56396df5003009d2d",
+          "name": "New Segment 4",
+          "type": "users_segment",
+          "created_at": "2018-02-20T11:25:24Z",
+          "updated_at": "2018-02-20T11:25:24Z"
+        }]
+      },
+      "account": {},
+      "account_segments": {},
+      "is_new": true
+    }
+  }],
+  "segments": [],
+  "notification_id": "1b70f2f9-b933-4ae8-9f4c-8494da124242",
+  "connector": {
+    "id": "5a83746bfd48682d93002025",
+    "settings": {},
+    "manifest": {
+      "name": "Hull Event Attribution Processor",
+      "version": "0.1.0",
+      "subscriptions": [{
+        "url": "/smart-notifier"
+      }],
+      "tags": [
+        "outgoing",
+        "batch",
+        "oneColumn",
+        "smart-notifier"
+      ]
+    },
+    "type": "ship",
+    "name": "f165c95c.ngrok.io",
+    "private_settings": {
+      "whitelisted_events": [
+        "Signed Up",
+        "Email Captured",
+        "Visited G2Crowd Page",
+        "User created"
+      ]
+    },
+    "source_url": "https://f165c95c.ngrok.io/",
+    "manifest_url": "https://f165c95c.ngrok.io/manifest.json"
+  }
+}

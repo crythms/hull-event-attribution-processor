@@ -24,7 +24,6 @@ class GistUtil {
         }
 
         let gistData = res.body;
-        console.log(res.body);
         if (_.isString(res.body)) {
           gistData = JSON.parse(res.body);
         }
@@ -43,8 +42,6 @@ class GistUtil {
       }
     };
 
-    console.log(opts);
-
     return new Promise((resolve, reject) => {
       request(opts, (err, res) => { // eslint-disable-line consistent-return
         if (err) {
@@ -57,11 +54,7 @@ class GistUtil {
           gistData = JSON.parse(res.body);
         }
 
-        console.log(gistData);
-
         const rawUrl = gistData.files[file].raw_url;
-
-        console.log(gistData, rawUrl);
 
         const rawOpts = {
           url: rawUrl,

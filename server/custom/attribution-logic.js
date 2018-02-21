@@ -98,7 +98,7 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   const asUser = hull.asUser(eventResult.user);
 
   // Step 2 - Process the last event every time
-
+  console.log(sortedEvents);
   const lastRaw = _.last(sortedEvents);
   let lastEvent = transformRawEvent(lastRaw);
   let lastEventTraits = createTraitsFromEvent(lastEvent, "last_");
@@ -108,7 +108,7 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   while (_.keys(lastEventTraits).length === 0 && Math.abs(lastEventIndex) <= sortedEvents.length) {
     lastEventIndex -= 1;
     lastEvent = _.nth(sortedEvents, lastEventIndex);
-    lastEventTraits = createTraitsFromEvent(lastEvent);
+    lastEventTraits = createTraitsFromEvent(lastEvent, "last_");
   }
 
   traitsObj = _.merge(traitsObj, lastEventTraits);

@@ -31,7 +31,7 @@ class Agent {
     _.forEach(messages, (m) => {
       try {
         this.hullClient.asUser(m.user)
-          .logger.debug("incoming.user.start", { events: _.map(m.events, "event") });
+          .logger.debug("incoming.user.start", { events: _.map(m.events, "event"), is_new: _.get(m, "changes.is_new") });
       } catch (error) {
         // don't ever fail on a log call
       }
@@ -43,7 +43,7 @@ class Agent {
 
     return Promise.map(filteredMessages, (m) => {
       return this.searchUtil.searchEvents(m.user, m.account, self.whitelistedEvents);
-    }, { concurrency: 1 })
+    }, { concurrency: parseInt(process.env.SEARCH_OPERATION_CONCURRENCY, 10) || 1 })
       .then((res: Array<IEventSearchResult>) => {
         return Promise.map(res, (searchResult: IEventSearchResult) => {
           return attributionLogic(self.hullClient, searchResult);

@@ -4,7 +4,7 @@
   "source": "event-attribution-processor",
   "logo": "logo.png",
   "picture": "picture.png",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "tags": [
     "outgoing",
     "batch",
@@ -31,7 +31,7 @@
       "name": "gist_code",
       "title": "Gist Code",
       "type": "string",
-      "format": "hidden"  
+      "format": "hidden"
     },
     {
       "name": "gist_version",

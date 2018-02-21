@@ -98,7 +98,6 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   const asUser = hull.asUser(eventResult.user);
 
   // Step 2 - Process the last event every time
-  console.log(sortedEvents);
   const lastRaw = _.last(sortedEvents);
   let lastEvent = transformRawEvent(lastRaw);
   let lastEventTraits = createTraitsFromEvent(lastEvent, "last_");

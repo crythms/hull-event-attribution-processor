@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.3
+
+- [cleanup] remove log lines for extensive debugging
+
 ## v0.1.2
 
 - [hotfix] issue with `last_` event attributes in custom logic

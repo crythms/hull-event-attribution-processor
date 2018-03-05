@@ -17,9 +17,15 @@ class ClientMock {
     this.put = jest.fn(() => Promise.resolve());
     this.traits = jest.fn(() => Promise.resolve());
     this.track = jest.fn(() => Promise.resolve());
-    this.asUser = jest.fn(() => this);
-    this.asAccount = jest.fn(() => this);
-    this.account = jest.fn(() => this);
+    this.asUser = jest.fn(() => {
+      return new ClientMock();
+    });
+    this.asAccount = jest.fn(() => {
+      return new ClientMock();
+    });
+    this.account = jest.fn(() => {
+      return new ClientMock();
+    });
   }
 }
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.5
+
+- [hotfix] fix timestamp comparison for attribution logic
+
 ## v0.1.4
 
 - [hotfix] ensure `last_lead_source_xxx` traits are not overwritten when older users run through the attribution logic

@@ -120,7 +120,7 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
 
   return asUser.traits(traitsObj, { source: "attribution" })
     .then(() => {
-      if (eventResult.account.id) {
+      if (eventResult.account.id && _.keys(accountTraitsObj).length > 0) {
         asUser.logger.info("incoming.user.success", { data: traitsObj });
         const asAccount = hull.asAccount(eventResult.account);
         return asAccount.traits(accountTraitsObj, { source: "attribution" }).then(() => {

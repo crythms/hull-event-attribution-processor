@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.6
+
+- [improvement] suppress account traits call if no changes are recognized
+
 ## v0.1.5
 
 - [hotfix] fix timestamp comparison for attribution logic

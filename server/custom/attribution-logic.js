@@ -113,12 +113,14 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   traitsObj = _.merge(traitsObj, lastEventTraits);
 
   if (eventResult.account.id) {
-    accountTraitsObj = _.merge(accountTraitsObj, lastEventTraits);
+    if (_.get(eventResult.account, "attribution/last_lead_source_timestamp", "1900-01-01T00:00:00Z") < _.get(lastEventTraits, "last_lead_source_timestamp")) {
+      accountTraitsObj = _.merge(accountTraitsObj, lastEventTraits);
+    }
   }
 
   return asUser.traits(traitsObj, { source: "attribution" })
     .then(() => {
-      if (eventResult.account.id) {
+      if (eventResult.account.id && _.keys(accountTraitsObj).length > 0) {
         asUser.logger.info("incoming.user.success", { data: traitsObj });
         const asAccount = hull.asAccount(eventResult.account);
         return asAccount.traits(accountTraitsObj, { source: "attribution" }).then(() => {

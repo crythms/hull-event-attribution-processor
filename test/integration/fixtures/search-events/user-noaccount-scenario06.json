@@ -1,0 +1,141 @@
+{
+    "pagination": {
+        "total": 3,
+        "page": 1,
+        "pages": 1,
+        "per_page": 500
+    },
+    "data": [
+        {
+            "indexed_at": "2018-02-20T20:55:10+00:00",
+            "created_at": "2018-02-20T20:52:25Z",
+            "event": "Signed Up",
+            "app_id": "59fb8be6af457575bf002a7e",
+            "app_name": "Segment - app - inbound",
+            "source": "segment",
+            "session_id": "3bd5003e-ee37-4122-9541-9cb285dcbe9d-2018-02-20",
+            "type": "track",
+            "props": [
+                {
+                    "field_name": "context",
+                    "text_value": "widget-onboarding"
+                },
+                {
+                    "field_name": "email",
+                    "text_value": "charly123@demo456.com"
+                },
+                {
+                    "field_name": "org_id",
+                    "num_value": 99372,
+                    "text_value": "99372"
+                },
+                {
+                    "field_name": "via",
+                    "text_value": "getstarted"
+                },
+                {
+                    "field_name": "route",
+                    "text_value": "https://www.drift.com/sales/"
+                }
+            ],
+            "context": {
+                "page_url": "https://app.drift.com/welcome/billing",
+                "days_since_signup": 0,
+                "location": {
+                    "lat": 8,
+                    "lon": -2
+                }
+            },
+            "_id": "4ed43573-1de7-4580-8cb4-cefe9927280f",
+            "_type": "event",
+            "_index": "organization_c1000999_user_reports_v2_20171102205746453",
+            "_score": 1.4142135
+        },
+        {
+            "indexed_at": "2018-02-20T20:54:43+00:00",
+            "created_at": "2018-02-20T20:54:43Z",
+            "event": "User created",
+            "app_id": "59fb8be6af457575bf002a7e",
+            "app_name": "Segment - app - inbound",
+            "source": "Segment",
+            "session_id": null,
+            "type": "user_created",
+            "props": [
+                {
+                    "field_name": "created_at",
+                    "num_value": 1519160082,
+                    "date_value": "2018-02-20T20:54:42Z",
+                    "text_value": "2018-02-20 20:54:42 UTC"
+                },
+                {
+                    "field_name": "first_name",
+                    "text_value": "charly123@demo456.com"
+                },
+                {
+                    "field_name": "org_id",
+                    "num_value": 99372,
+                    "text_value": "99372"
+                },
+                {
+                    "field_name": "role",
+                    "text_value": "OWNER"
+                },
+                {
+                    "field_name": "external_id",
+                    "text_value": "99372-190035"
+                },
+                {
+                    "field_name": "email",
+                    "text_value": "charly123@demo456.com"
+                }
+            ],
+            "context": {
+                "days_since_signup": 0
+            },
+            "_id": "5a8c8b114c80e2d9140e74a9:created",
+            "_type": "event",
+            "_index": "organization_c1000999_user_reports_v2_20171102205746453",
+            "_score": 1.4142135
+        },
+        {
+            "indexed_at": "2018-02-20T20:56:41+00:00",
+            "created_at": "2018-02-20T20:52:24Z",
+            "event": "Signed Up",
+            "app_id": "59fb8be6af457575bf002a7e",
+            "app_name": "Segment - app - inbound",
+            "source": "segment",
+            "session_id": "99372-190035-2018-02-20",
+            "type": "track",
+            "props": [
+                {
+                    "field_name": "email",
+                    "text_value": "charly123@demo456.com"
+                },
+                {
+                    "field_name": "org_id",
+                    "num_value": 99372,
+                    "text_value": "99372"
+                },
+                {
+                    "field_name": "route",
+                    "text_value": "https://www.drift.com/pricing/"
+                },
+                {
+                    "field_name": "type",
+                    "text_value": "ORGANIC"
+                },
+                {
+                    "field_name": "route",
+                    "text_value": "https://www.drift.com/sales/"
+                }
+            ],
+            "context": {
+                "days_since_signup": 0
+            },
+            "_id": "fd4e92e6-6980-4a8d-9f4f-2e739c5b42ce",
+            "_type": "event",
+            "_index": "organization_c1000999_user_reports_v2_20171102205746453",
+            "_score": 1.4142135
+        }
+    ]
+}

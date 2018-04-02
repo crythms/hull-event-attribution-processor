@@ -20,7 +20,8 @@ describe("Agent", () => {
       "user-noaccount-scenario02",
       "user-noaccount-scenario03",
       "user-noaccount-scenario04",
-      "user-noaccount-scenario05"
+      "user-noaccount-scenario05",
+      "user-noaccount-scenario06"
     ];
 
     scenariosToRun.forEach((scenarioName) => {

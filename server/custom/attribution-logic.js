@@ -38,7 +38,12 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
 
   if (eventData.event === "Signed Up") {
     _.set(traits, `${prefix}lead_source`, "PQL");
-    _.set(traits, `${prefix}lead_source_detail`, _.get(eventData, "properties.type", "ORGANIC"));
+    console.log(eventData);
+    if (_.get(eventData, "properties.route", "n/a") === "https://www.drift.com/sales/") {
+      _.set(traits, `${prefix}lead_source_detail`, "Drift.com/sales");
+    } else {
+      _.set(traits, `${prefix}lead_source_detail`, _.get(eventData, "properties.type", "ORGANIC"));
+    }
   } else if (eventData.event === "Email Captured") {
     if (_.get(eventData, "context.page_url", "").indexOf("blog.drift.com") === -1) {
       _.set(traits, `${prefix}lead_source`, "CQL");
@@ -72,7 +77,7 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   //          matching event as the initial attribution
   if (_.get(eventResult.user, "traits_attribution/lead_source", "n/a") === "n/a") {
     // Get the oldest event and process it
-    const firstRaw = _.first(sortedEvents);
+    let firstRaw = _.first(sortedEvents);
     let firstEvent = transformRawEvent(firstRaw);
 
     let eventTraits = createTraitsFromEvent(firstEvent);
@@ -81,7 +86,8 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
 
     while (_.keys(eventTraits).length === 0 && eventIndex < sortedEvents.length) {
       eventIndex += 1;
-      firstEvent = _.nth(sortedEvents, eventIndex);
+      firstRaw = _.nth(sortedEvents, eventIndex);
+      firstEvent = transformRawEvent(firstRaw);
       eventTraits = createTraitsFromEvent(firstEvent);
     }
 
@@ -98,7 +104,7 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
   const asUser = hull.asUser(eventResult.user);
 
   // Step 2 - Process the last event every time
-  const lastRaw = _.last(sortedEvents);
+  let lastRaw = _.last(sortedEvents);
   let lastEvent = transformRawEvent(lastRaw);
   let lastEventTraits = createTraitsFromEvent(lastEvent, "last_");
 
@@ -106,7 +112,8 @@ function attributionLogic(hull: Object, eventResult: IEventSearchResult): Promis
 
   while (_.keys(lastEventTraits).length === 0 && Math.abs(lastEventIndex) <= sortedEvents.length) {
     lastEventIndex -= 1;
-    lastEvent = _.nth(sortedEvents, lastEventIndex);
+    lastRaw = _.nth(sortedEvents, lastEventIndex);
+    lastEvent = transformRawEvent(lastRaw);
     lastEventTraits = createTraitsFromEvent(lastEvent, "last_");
   }
 

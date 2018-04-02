@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.7
+
+- [feature] update custom attribution logic
+
 ## v0.1.6
 
 - [improvement] suppress account traits call if no changes are recognized

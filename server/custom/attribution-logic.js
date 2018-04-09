@@ -37,12 +37,16 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
   }
 
   if (eventData.event === "Signed Up") {
-    _.set(traits, `${prefix}lead_source`, "PQL");
-    console.log(eventData);
-    if (_.get(eventData, "properties.route", "n/a") === "https://www.drift.com/sales/") {
-      _.set(traits, `${prefix}lead_source_detail`, "Drift.com/sales");
+    const route = _.get(eventData, "properties.route", "n/a");
+    if (route === 'https://app.drift.com/white-glove/') {
+      _.set(traits, `${prefix}lead_source`, "Sales Representative");
     } else {
-      _.set(traits, `${prefix}lead_source_detail`, _.get(eventData, "properties.type", "ORGANIC"));
+      _.set(traits, `${prefix}lead_source`, "PQL");
+      if (route === "https://www.drift.com/sales/") {
+        _.set(traits, `${prefix}lead_source_detail`, "Drift.com/sales");
+      } else {
+        _.set(traits, `${prefix}lead_source_detail`, _.get(eventData, "properties.type", "ORGANIC"));
+      }
     }
   } else if (eventData.event === "Email Captured") {
     if (_.get(eventData, "context.page_url", "").indexOf("blog.drift.com") === -1) {

@@ -38,8 +38,8 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
 
   if (eventData.event === "Signed Up") {
     const route = _.get(eventData, "properties.route", "n/a");
-    if (route === 'https://app.drift.com/white-glove/') {
-      _.set(traits, `${prefix}lead_source`, "Sales Representative");
+    if (route === "https://app.drift.com/white-glove/") {
+      _.set(traits, `${prefix}lead_source`, "Other");
       _.set(traits, `${prefix}lead_source_detail`, "Deal Link");
     } else {
       _.set(traits, `${prefix}lead_source`, "PQL");

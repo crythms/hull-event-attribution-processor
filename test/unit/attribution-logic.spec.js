@@ -56,6 +56,62 @@ describe("createTraitsFromEvent", () => {
     expect(traits).toEqual(expected);
   });
 
+  test("should create attributes for event 'Signed Up' deal link initial", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Signed Up",
+      source: "segment",
+      context: {
+        days_since_signup: 0
+      },
+      properties: {
+        email: "somebody12345@hull.io",
+        type: "ORGANIC",
+        route: "https://app.drift.com/white-glove/"
+      }
+    };
+
+    const expected = {
+      lead_source: "Other",
+      lead_source_detail: "Deal Link",
+      lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData);
+
+    expect(traits).toEqual(expected);
+  });
+
+  test("should create attributes for event 'Signed Up' deal link last", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Signed Up",
+      source: "segment",
+      context: {
+        days_since_signup: 0
+      },
+      properties: {
+        email: "somebody12345@hull.io",
+        type: "ORGANIC",
+        route: "https://app.drift.com/white-glove/"
+      }
+    };
+
+    const expected = {
+      last_lead_source: "Other",
+      last_lead_source_detail: "Deal Link",
+      last_lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData, "last_");
+
+    expect(traits).toEqual(expected);
+  });
+
   test("should create attributes for event 'Email Captured [from Blog]' initial ", () => {
     const eventData = {
       id: "abkbiuegwlh",

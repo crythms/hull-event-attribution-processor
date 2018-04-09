@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.8
+
+- [feature] update custom attribution logic
+
 ## v0.1.7
 
 - [feature] update custom attribution logic

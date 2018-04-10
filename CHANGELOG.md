@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.9
+
+- [hotfix] fix custom attribution logic for startup page and query string
+
 ## v0.1.8
 
 - [feature] update custom attribution logic

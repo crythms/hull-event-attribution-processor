@@ -50,12 +50,17 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
       }
     }
   } else if (eventData.event === "Email Captured") {
-    if (_.get(eventData, "context.page_url", "").indexOf("blog.drift.com") === -1) {
-      _.set(traits, `${prefix}lead_source`, "CQL");
-    } else {
+    const pageUrl = _.get(eventData, "context.page_url", "").split("?")[0];
+    if (pageUrl.indexOf("blog.drift.com") !== -1) {
       _.set(traits, `${prefix}lead_source`, "MQL");
+      _.set(traits, `${prefix}lead_source_detail`, pageUrl);
+    } else if (pageUrl.indexOf("drift.com/startups") !== -1) {
+      _.set(traits, `${prefix}lead_source`, "CQL");
+      _.set(traits, `${prefix}lead_source_detail`, "Startup Program");
+    } else {
+      _.set(traits, `${prefix}lead_source`, "CQL");
+      _.set(traits, `${prefix}lead_source_detail`, pageUrl);
     }
-    _.set(traits, `${prefix}lead_source_detail`, _.get(eventData, "context.page_url"));
   } else if (eventData.event === "User created" && eventData.source === "Clearbit") {
     _.set(traits, `${prefix}lead_source`, "Growth");
     _.set(traits, `${prefix}lead_source_detail`, "Anonymous Drift Visit");

@@ -166,6 +166,87 @@ describe("createTraitsFromEvent", () => {
     expect(traits).toEqual(expected);
   });
 
+  test("should create attributes for event 'Email Captured [from Startups]' initial ", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+        page_url: "https://www.drift.com/startups"
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com"
+      }
+    };
+
+    const expected = {
+      lead_source: "CQL",
+      lead_source_detail: "Startup Program",
+      lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData);
+
+    expect(traits).toEqual(expected);
+  });
+
+  test("should create attributes for event 'Email Captured [from Startups]' last ", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+        page_url: "https://www.drift.com/startups"
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com"
+      }
+    };
+
+    const expected = {
+      last_lead_source: "CQL",
+      last_lead_source_detail: "Startup Program",
+      last_lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData, "last_");
+
+    expect(traits).toEqual(expected);
+  });
+
+  test("should create attributes for event 'Email Captured' remove query", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+        page_url: "https://drift.com/pricing?mynameis=wow&wow=wow"
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com"
+      }
+    };
+
+    const expected = {
+      lead_source: "CQL",
+      lead_source_detail: "https://drift.com/pricing",
+      lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData);
+
+    expect(traits).toEqual(expected);
+  });
+
   test("should create attributes for event 'Email Captured [Not From Blog]' initial ", () => {
     const eventData = {
       id: "abkbiuegwlh",

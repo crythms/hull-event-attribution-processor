@@ -37,21 +37,26 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
   }
 
   if (eventData.event === "Signed Up") {
-    const route = _.get(eventData, "properties.route", "n/a");
-    if (route === "https://app.drift.com/white-glove/") {
+    const route = _.get(eventData, "properties.route") ? _.get(eventData, "properties.route").split("?")[0] : "ORGANIC";
+    if (route.indexOf("app.drift.com/white-glove") !== -1) {
       _.set(traits, `${prefix}lead_source`, "Other");
       _.set(traits, `${prefix}lead_source_detail`, "Deal Link");
     } else {
       _.set(traits, `${prefix}lead_source`, "PQL");
-      if (route === "https://www.drift.com/sales/") {
+      if (_.get(eventData, "properties.type") === "INVITE") {
+        _.set(traits, `${prefix}lead_source_detail`, "INVITE");
+      } else if (route.indexOf("drift.com/sales") !== -1) {
         _.set(traits, `${prefix}lead_source_detail`, "Drift.com/sales");
       } else {
-        _.set(traits, `${prefix}lead_source_detail`, _.get(eventData, "properties.type", "ORGANIC"));
+        _.set(traits, `${prefix}lead_source_detail`, route);
       }
     }
   } else if (eventData.event === "Email Captured") {
     const pageUrl = _.get(eventData, "context.page_url", "").split("?")[0];
-    if (pageUrl.indexOf("blog.drift.com") !== -1) {
+    if (pageUrl.indexOf("drift.com/webinars") !== -1) {
+      _.set(traits, `${prefix}lead_source`, "Webinar");
+      _.set(traits, `${prefix}lead_source_detail`, pageUrl);
+    } else if (pageUrl.indexOf("blog.drift.com") !== -1) {
       _.set(traits, `${prefix}lead_source`, "MQL");
       _.set(traits, `${prefix}lead_source_detail`, pageUrl);
     } else if (pageUrl.indexOf("drift.com/startups") !== -1) {

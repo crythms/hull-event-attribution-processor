@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.10
+
+- [hotfix] fix custom attribution logic for ORGANIC signups and webinar logic
+
 ## v0.1.9
 
 - [hotfix] fix custom attribution logic for startup page and query string

@@ -2,7 +2,7 @@
 module.exports = (ctxMock) => {
   const expectedTraits = {
     lead_source: "PQL",
-    lead_source_detail: "ORGANIC",
+    lead_source_detail: "https://www.drift.com/pricing/",
     lead_source_timestamp: "2018-02-20T20:52:24Z",
     last_lead_source: "PQL",
     last_lead_source_detail: "ORGANIC",

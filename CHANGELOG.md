@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.11
+
+- upgrade hull-node to 0.13.14
+
 ## v0.1.10
 
 - [hotfix] fix custom attribution logic for ORGANIC signups and webinar logic

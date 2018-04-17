@@ -61,7 +61,6 @@
     "eslint-plugin-import": "^2.8.0",
     "flow-bin": "^0.59.0",
     "flow-typed": "^2.2.3",
-    "hull-connector-tester": "^0.0.5",
     "jest": "^22.2.2",
     "jsonlint": "^1.6.2",
     "nock": "^9.1.6",

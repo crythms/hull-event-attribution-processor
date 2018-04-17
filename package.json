@@ -3,8 +3,8 @@
   "version": "0.1.11",
   "description": "A connector to use events for attribution of user and account profiles",
   "engines": {
-    "node": "8.9.x",
-    "npm": "5.5.x",
+    "node": "8.10.x",
+    "npm": "5.6.x",
     "yarn": "1.5.x"
   },
   "scripts": {

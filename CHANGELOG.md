@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.12
+
+- [hotfix] add secret shopper logic
+- [maintenance] upgrade node to LTS version
+
 ## v0.1.11
 
 - upgrade hull-node to 0.13.14

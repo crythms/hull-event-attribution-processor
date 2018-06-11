@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.13
+
+- [hotfix] add testdrive logic
+
 ## v0.1.12
 
 - [hotfix] add secret shopper logic

@@ -65,6 +65,9 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
     } else if (pageUrl.indexOf("getmyresponsetime") !== -1) {
       _.set(traits, `${prefix}lead_source`, "Growth");
       _.set(traits, `${prefix}lead_source_detail`, "Secret Shopper");
+    } else if (pageUrl.indexOf("drift.com/test-drive") !== -1) {
+      _.set(traits, `${prefix}lead_source`, "Content");
+      _.set(traits, `${prefix}lead_source_detail`, "Test Drive");
     } else {
       _.set(traits, `${prefix}lead_source`, "CQL");
       _.set(traits, `${prefix}lead_source_detail`, pageUrl);

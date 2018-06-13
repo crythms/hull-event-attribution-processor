@@ -1,6 +1,6 @@
 {
   "name": "hull-event-attribution-processor",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "A connector to use events for attribution of user and account profiles",
   "engines": {
     "node": "8.11.x",

@@ -286,7 +286,7 @@ describe("createTraitsFromEvent", () => {
       source: "segment",
       context: {
         days_since_signup: 0,
-        page_url: "https://www.drift.com/test-drive"
+        page_url: "https://www.drift.com/testdrive"
       },
       properties: {
         email_value: "marceloliveira@beyondcontrol.com"
@@ -313,7 +313,7 @@ describe("createTraitsFromEvent", () => {
       source: "segment",
       context: {
         days_since_signup: 0,
-        page_url: "https://www.drift.com/test-drive"
+        page_url: "https://www.drift.com/testdrive"
       },
       properties: {
         email_value: "marceloliveira@beyondcontrol.com"

@@ -47,6 +47,9 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
         _.set(traits, `${prefix}lead_source_detail`, "INVITE");
       } else if (route.indexOf("drift.com/sales") !== -1) {
         _.set(traits, `${prefix}lead_source_detail`, "Drift.com/sales");
+      } else if (route.indexOf("drift.com/university") !== -1) {
+        _.set(traits, `${prefix}lead_source`, "CMU"); 
+        _.set(traits, `${prefix}lead_source_detail`, "Drift.com/university");
       } else {
         _.set(traits, `${prefix}lead_source_detail`, route);
       }
@@ -68,6 +71,9 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
     } else if (pageUrl.indexOf("drift.com/testdrive") !== -1) {
       _.set(traits, `${prefix}lead_source`, "Content");
       _.set(traits, `${prefix}lead_source_detail`, "Test Drive");
+    } else if (pageUrl.indexOf("drift.com/unscalable") !== -1) {
+      _.set(traits, `${prefix}lead_source`, "Content");
+      _.set(traits, `${prefix}lead_source_detail`, "Unscalable Book");
     } else {
       _.set(traits, `${prefix}lead_source`, "CQL");
       _.set(traits, `${prefix}lead_source_detail`, pageUrl);

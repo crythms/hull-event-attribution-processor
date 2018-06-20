@@ -223,6 +223,62 @@ describe("createTraitsFromEvent", () => {
     expect(traits).toEqual(expected);
   });
 
+  test("should create attributes for event 'Signed Up' CMU initial", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Signed Up",
+      source: "segment",
+      context: {
+        days_since_signup: 0
+      },
+      properties: {
+        email: "somebody12345@hull.io",
+        type: "ORGANIC",
+        route: "drift.com/university"
+      }
+    };
+
+    const expected = {
+      lead_source: "CMU",
+      lead_source_detail: "drift.com/university",
+      lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData);
+
+    expect(traits).toEqual(expected);
+  });
+
+  test("should create attributes for event 'Signed Up' CMU last", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Signed Up",
+      source: "segment",
+      context: {
+        days_since_signup: 0
+      },
+      properties: {
+        email: "somebody12345@hull.io",
+        type: "ORGANIC",
+        route: "drift.com/university"
+      }
+    };
+
+    const expected = {
+      last_lead_source: "CMU",
+      last_lead_source_detail: "drift.com/university",
+      last_lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData, "last_");
+
+    expect(traits).toEqual(expected);
+  });
+
   test("should create attributes for event 'Email Captured [from Blog]' initial ", () => {
     const eventData = {
       id: "abkbiuegwlh",
@@ -584,6 +640,60 @@ describe("createTraitsFromEvent", () => {
     const expected = {
       last_lead_source: "Growth",
       last_lead_source_detail: "G2Crowd",
+      last_lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData, "last_");
+
+    expect(traits).toEqual(expected);
+  });
+
+  test("should create attributes for event 'Email Captured [Unscalable Book]' initial ", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+        page_url: "https://drift.com/unscalable"
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com"
+      }
+    };
+
+    const expected = {
+      lead_source: "Content",
+      lead_source_detail: "Unscalable Book",
+      lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData);
+
+    expect(traits).toEqual(expected);
+  });
+
+  test("should create attributes for event 'Email Captured [Unscalable Book]' last ", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+        page_url: "https://drift.com/unscalable"
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com"
+      }
+    };
+
+    const expected = {
+      last_lead_source: "Content",
+      last_lead_source_detail: "Unscalable Book",
       last_lead_source_timestamp: "2018-02-10T09:38:48+00:00"
     };
 

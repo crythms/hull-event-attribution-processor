@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.15
+
+- [hotfix] june attribution
+
 ## v0.1.14
 
 - [hotfix] change testdrive url

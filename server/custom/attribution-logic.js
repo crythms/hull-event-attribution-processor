@@ -48,8 +48,8 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
       } else if (route.indexOf("drift.com/sales") !== -1) {
         _.set(traits, `${prefix}lead_source_detail`, "Drift.com/sales");
       } else if (route.indexOf("drift.com/university") !== -1) {
-        _.set(traits, `${prefix}lead_source`, "CMU"); 
-        _.set(traits, `${prefix}lead_source_detail`, "Drift.com/university");
+        _.set(traits, `${prefix}lead_source`, "CMU");
+        _.set(traits, `${prefix}lead_source_detail`, "drift.com/university");
       } else {
         _.set(traits, `${prefix}lead_source_detail`, route);
       }

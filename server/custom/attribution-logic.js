@@ -59,6 +59,12 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
     if (pageUrl.indexOf("drift.com/webinars") !== -1) {
       _.set(traits, `${prefix}lead_source`, "Webinar");
       _.set(traits, `${prefix}lead_source_detail`, pageUrl);
+    } else if (pageUrl.indexOf("drift.com/video") !== -1) {
+      _.set(traits, `${prefix}lead_source`, "Content");
+      _.set(traits, `${prefix}lead_source_detail`, "Drift Video Subscription");
+    } else if (pageUrl.indexOf("drift.com/coffee") !== -1) {
+      _.set(traits, `${prefix}lead_source`, "Content");
+      _.set(traits, `${prefix}lead_source_detail`, "Drift Video Subscription");
     } else if (pageUrl.indexOf("blog.drift.com") !== -1) {
       _.set(traits, `${prefix}lead_source`, "MQL");
       _.set(traits, `${prefix}lead_source_detail`, pageUrl);

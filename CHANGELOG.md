@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.16
+
+- [hotifx] coffee and video logic
+
 ## v0.1.15
 
 - [hotfix] june attribution

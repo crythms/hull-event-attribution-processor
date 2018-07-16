@@ -4,7 +4,7 @@
   "source": "event-attribution-processor",
   "logo": "logo.png",
   "picture": "picture.png",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "tags": [
     "outgoing",
     "batch",

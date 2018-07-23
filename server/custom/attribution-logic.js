@@ -80,6 +80,9 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
     } else if (pageUrl.indexOf("drift.com/unscalable") !== -1) {
       _.set(traits, `${prefix}lead_source`, "Content");
       _.set(traits, `${prefix}lead_source_detail`, "Unscalable Book");
+    } else if (pageUrl.indexOf("drift.com/summit") !== -1) {
+      _.set(traits, `${prefix}lead_source`, "Webinar");
+      _.set(traits, `${prefix}lead_source_detail`, "Conversational Marketing Summit 2018");
     } else {
       _.set(traits, `${prefix}lead_source`, "CQL");
       _.set(traits, `${prefix}lead_source_detail`, pageUrl);

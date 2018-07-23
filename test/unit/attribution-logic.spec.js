@@ -369,7 +369,7 @@ describe("createTraitsFromEvent", () => {
       source: "segment",
       context: {
         days_since_signup: 0,
-        page_url: "https://blog.drift.com/coffee"
+        page_url: "https://www.drift.com/coffee"
       },
       properties: {
         email_value: "marceloliveira@beyondcontrol.com"
@@ -387,6 +387,59 @@ describe("createTraitsFromEvent", () => {
     expect(traits).toEqual(expected);
   });
 
+  test("should create attributes for event 'Email Captured [from summit]' initial ", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+        page_url: "https://www.drift.com/summit"
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com"
+      }
+    };
+
+    const expected = {
+      lead_source: "Webinar",
+      lead_source_detail: "Conversational Marketing Summit 2018",
+      lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData);
+
+    expect(traits).toEqual(expected);
+  });
+
+  test("should create attributes for event 'Email Captured [from summit]' last ", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+        page_url: "https://www.drift.com/summit"
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com"
+      }
+    };
+
+    const expected = {
+      last_lead_source: "Webinar",
+      last_lead_source_detail: "Conversational Marketing Summit 2018",
+      last_lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData, "last_");
+
+    expect(traits).toEqual(expected);
+  });
 
   test("should create attributes for event 'Email Captured [from Blog]' initial ", () => {
     const eventData = {

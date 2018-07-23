@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.17
+
+- [hotifx] attribution for summit
+
 ## v0.1.16
 
 - [hotifx] coffee and video logic

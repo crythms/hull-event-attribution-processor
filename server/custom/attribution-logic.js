@@ -54,6 +54,10 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
         _.set(traits, `${prefix}lead_source_detail`, route);
       }
     }
+  } else if (eventData.properties.isTestDrive) {
+    const pageUrl = _.get(eventData, "context.page_url", "").split("?")[0];
+    _.set(traits, `${prefix}lead_source`, "Test Drive");
+    _.set(traits, `${prefix}lead_source_detail`, pageUrl);
   } else if (eventData.event === "Email Captured") {
     const pageUrl = _.get(eventData, "context.page_url", "").split("?")[0];
     if (pageUrl.indexOf("drift.com/webinars") !== -1) {
@@ -75,8 +79,8 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
       _.set(traits, `${prefix}lead_source`, "Growth");
       _.set(traits, `${prefix}lead_source_detail`, "Secret Shopper");
     } else if (pageUrl.indexOf("drift.com/testdrive") !== -1) {
-      _.set(traits, `${prefix}lead_source`, "Content");
-      _.set(traits, `${prefix}lead_source_detail`, "Test Drive");
+      _.set(traits, `${prefix}lead_source`, "Test Drive");
+      _.set(traits, `${prefix}lead_source_detail`, pageUrl);
     } else if (pageUrl.indexOf("drift.com/unscalable") !== -1) {
       _.set(traits, `${prefix}lead_source`, "Content");
       _.set(traits, `${prefix}lead_source_detail`, "Unscalable Book");

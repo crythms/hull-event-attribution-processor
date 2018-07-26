@@ -2,11 +2,6 @@
   "name": "hull-event-attribution-processor",
   "version": "0.1.17",
   "description": "A connector to use events for attribution of user and account profiles",
-  "engines": {
-    "node": "8.11.x",
-    "npm": "5.6.x",
-    "yarn": "1.6.x"
-  },
   "scripts": {
     "build": "yarn run clean && yarn run build:server",
     "build:server": "babel server -d build",

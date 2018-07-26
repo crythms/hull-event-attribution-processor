@@ -54,6 +54,10 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
         _.set(traits, `${prefix}lead_source_detail`, route);
       }
     }
+  } else if (eventData.properties.isTestDrive) {
+    const pageUrl = _.get(eventData, "context.page_url", "").split("?")[0];
+    _.set(traits, `${prefix}lead_source`, "Test Drive");
+    _.set(traits, `${prefix}lead_source_detail`, pageUrl);
   } else if (eventData.event === "Email Captured") {
     const pageUrl = _.get(eventData, "context.page_url", "").split("?")[0];
     if (pageUrl.indexOf("drift.com/webinars") !== -1) {

@@ -341,7 +341,7 @@ describe("createTraitsFromEvent", () => {
       source: "segment",
       context: {
         days_since_signup: 0,
-        page_url: "https://www.drift.com/testdrive/"
+        page_url: "https://www.drift.com/"
       },
       properties: {
         email_value: "marceloliveira@beyondcontrol.com",
@@ -351,7 +351,7 @@ describe("createTraitsFromEvent", () => {
 
     const expected = {
       lead_source: "Test Drive",
-      lead_source_detail: "https://www.drift.com/testdrive/",
+      lead_source_detail: "https://www.drift.com/",
       lead_source_timestamp: "2018-02-10T09:38:48+00:00"
     };
 

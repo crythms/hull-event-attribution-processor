@@ -332,6 +332,63 @@ describe("createTraitsFromEvent", () => {
 
     expect(traits).toEqual(expected);
   });
+  test("should create attributes for event 'Email Captured [from test drive]' initial ", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+        page_url: "https://www.drift.com/"
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com",
+        isTestDrive: true
+      }
+    };
+
+    const expected = {
+      lead_source: "Test Drive",
+      lead_source_detail: "https://www.drift.com/",
+      lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData);
+
+    expect(traits).toEqual(expected);
+  });
+
+
+  test("should create attributes for event 'Email Captured [from test drive]' last ", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+        page_url: "https://www.drift.com/testdrive/"
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com",
+        isTestDrive: true
+      }
+    };
+
+    const expected = {
+      last_lead_source: "Test Drive",
+      last_lead_source_detail: "https://www.drift.com/testdrive/",
+      last_lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData, "last_");
+
+    expect(traits).toEqual(expected);
+  });
+
 
   test("should create attributes for event 'Email Captured [from coffee]' initial ", () => {
     const eventData = {
@@ -504,7 +561,7 @@ describe("createTraitsFromEvent", () => {
       source: "segment",
       context: {
         days_since_signup: 0,
-        page_url: "https://www.drift.com/testdrive"
+        page_url: "https://www.drift.com/testdrive/"
       },
       properties: {
         email_value: "marceloliveira@beyondcontrol.com"
@@ -512,8 +569,8 @@ describe("createTraitsFromEvent", () => {
     };
 
     const expected = {
-      lead_source: "Content",
-      lead_source_detail: "Test Drive",
+      lead_source: "Test Drive",
+      lead_source_detail: "https://www.drift.com/testdrive/",
       lead_source_timestamp: "2018-02-10T09:38:48+00:00"
     };
 
@@ -531,7 +588,7 @@ describe("createTraitsFromEvent", () => {
       source: "segment",
       context: {
         days_since_signup: 0,
-        page_url: "https://www.drift.com/testdrive"
+        page_url: "https://www.drift.com/testdrive/"
       },
       properties: {
         email_value: "marceloliveira@beyondcontrol.com"
@@ -539,8 +596,8 @@ describe("createTraitsFromEvent", () => {
     };
 
     const expected = {
-      last_lead_source: "Content",
-      last_lead_source_detail: "Test Drive",
+      last_lead_source: "Test Drive",
+      last_lead_source_detail: "https://www.drift.com/testdrive/",
       last_lead_source_timestamp: "2018-02-10T09:38:48+00:00"
     };
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.18
+
+- [hotifx] update testdrive logic
+
 ## v0.1.17
 
 - [hotifx] attribution for summit

@@ -1,16 +1,20 @@
 # Changelog
 
+## v0.1.19
+
+- [hotfix] make logic code less error prone
+
 ## v0.1.18
 
-- [hotifx] update testdrive logic
+- [hotfix] update testdrive logic
 
 ## v0.1.17
 
-- [hotifx] attribution for summit
+- [hotfix] attribution for summit
 
 ## v0.1.16
 
-- [hotifx] coffee and video logic
+- [hotfix] coffee and video logic
 
 ## v0.1.15
 

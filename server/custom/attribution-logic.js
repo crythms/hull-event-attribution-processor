@@ -54,7 +54,7 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
         _.set(traits, `${prefix}lead_source_detail`, route);
       }
     }
-  } else if (eventData.properties.isTestDrive) {
+  } else if (_.get(eventData, "properties.isTestDrive")) {
     const pageUrl = _.get(eventData, "context.page_url", "").split("?")[0];
     _.set(traits, `${prefix}lead_source`, "Test Drive");
     _.set(traits, `${prefix}lead_source_detail`, pageUrl);

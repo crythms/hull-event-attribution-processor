@@ -69,7 +69,7 @@ function createTraitsFromEvent(eventData: any, prefix: string = ""): any {
     } else if (pageUrl.indexOf("drift.com/coffee") !== -1) {
       _.set(traits, `${prefix}lead_source`, "Content");
       _.set(traits, `${prefix}lead_source_detail`, "Drift Video Subscription");
-    } else if (pageUrl.indexOf("blog.drift.com") !== -1) {
+    } else if (pageUrl.indexOf("drift.com/blog") !== -1) {
       _.set(traits, `${prefix}lead_source`, "MQL");
       _.set(traits, `${prefix}lead_source_detail`, pageUrl);
     } else if (pageUrl.indexOf("drift.com/startups") !== -1) {

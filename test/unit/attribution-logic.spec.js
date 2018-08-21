@@ -315,7 +315,7 @@ describe("createTraitsFromEvent", () => {
       source: "segment",
       context: {
         days_since_signup: 0,
-        page_url: "https://blog.drift.com/video"
+        page_url: "https://www.drift.com/video"
       },
       properties: {
         email_value: "marceloliveira@beyondcontrol.com"
@@ -507,7 +507,7 @@ describe("createTraitsFromEvent", () => {
       source: "segment",
       context: {
         days_since_signup: 0,
-        page_url: "https://blog.drift.com/test-blog"
+        page_url: "https://www.drift.com/blog/test-blog"
       },
       properties: {
         email_value: "marceloliveira@beyondcontrol.com"
@@ -534,7 +534,7 @@ describe("createTraitsFromEvent", () => {
       source: "segment",
       context: {
         days_since_signup: 0,
-        page_url: "https://blog.drift.com/test-blog"
+        page_url: "https://www.drift.com/blog/test-blog"
       },
       properties: {
         email_value: "marceloliveira@beyondcontrol.com"

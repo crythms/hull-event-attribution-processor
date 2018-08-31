@@ -687,6 +687,33 @@ describe("createTraitsFromEvent", () => {
     expect(traits).toEqual(expected);
   });
 
+  test("should create attributes for event 'Email Captured' backend with route", () => {
+    const eventData = {
+      id: "abkbiuegwlh",
+      indexed_at: "2018-02-10T09:43:57+00:00",
+      created_at: "2018-02-10T09:38:48+00:00",
+      event: "Email Captured",
+      source: "segment",
+      context: {
+        days_since_signup: 0,
+      },
+      properties: {
+        email_value: "marceloliveira@beyondcontrol.com",
+        route: "https://drift.com/pricing?mynameis=wow&wow=wow"
+      }
+    };
+
+    const expected = {
+      lead_source: "CQL",
+      lead_source_detail: "https://drift.com/pricing",
+      lead_source_timestamp: "2018-02-10T09:38:48+00:00"
+    };
+
+    const traits = createTraitsFromEvent(eventData);
+
+    expect(traits).toEqual(expected);
+  });
+
   test("should create attributes for event 'Email Captured [Not From Blog]' initial ", () => {
     const eventData = {
       id: "abkbiuegwlh",
